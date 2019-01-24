@@ -1,0 +1,106 @@
+# 服务器配置
+server:
+  port: 19999
+  servlet:
+    context-path: /
+  ssl:
+    key-store: classpath:keystore.p12
+    key-password: shengzhuo
+    key-store-type: PKCS12
+    key-alias: tomcat
+
+# 数据库配置
+
+
+
+# Thymeleaf 配置
+
+
+
+
+# redis配置
+spring:
+  redis:
+    database: 1
+    host: localhost
+    jedis:
+      pool:
+        max-active: 10
+    port: 6379
+  # thymeleaf
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    enable-spring-el-compiler: false
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/thymeleaf/
+    suffix: .html
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ysu_shengzhuo
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 0B
+      max-file-size: 50MB
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+  # profiles配置
+  profiles: dev
+  jpa:
+    database: mysql
+    database-platform: mysql
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: true
+    show-sql: true
+  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: shengzhuo
+#    password: AaronJiangShengZhuo2013#
+#    platform: mysql
+#    url: jdbc:mysql://localhost:3306/shengzhuo
+# druid配置
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/shengzhuo?useSSL=false
+      username: shengzhuo
+      password: AaronJiangShengZhuo2013#
+      filters: stat,wall,log4j2,config
+      max-active: 100
+      initial-size: 10
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+#      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+
+
+
+#swagger配置
+swagger:
+  title: 2013生卓
+  description: 我们的生卓
+  version: 1.0.0
+  name: aaronjiang
+  url: jcxwyh.github.io
+  email: 1327994105@qq.com
+
+
+
+
+

@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: dev
+
+# banner配置
+  banner:
+    charset: UTF-8
+    location: classpath:/banner.txt
+  main:
+    banner-mode: console
